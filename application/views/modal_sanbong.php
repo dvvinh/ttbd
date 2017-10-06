@@ -122,7 +122,7 @@ $(document).ready(function(){
         };
         $.ajax({
             type: "POST",
-            url: "http://localhost/ttbd/index.php/san_bong/modal_them_san_bong/",
+            url:  "<?php echo site_url();?>san_bong/modal_them_san_bong/",
             dataType: "json",
             data: data,
             success: function(result)
@@ -147,7 +147,7 @@ $(document).ready(function(){
         {
             $.ajax({
                 type:"post",
-                url: "http://localhost/ttbd/index.php/san_bong/xoa_nhieu_dong/",
+                url:  "<?php echo site_url();?>san_bong/xoa_nhieu_dong/",
                 data:{id:id},
                 success: function(result)
                 {
@@ -189,7 +189,7 @@ $(document).ready(function(){
         };
         $.ajax({
             type: "POST",
-            url: "http://localhost/ttbd/index.php/san_bong/sua_san_bong/",
+            url:  "<?php echo site_url();?>san_bong/sua_san_bong/",
             data: {mangsua:mangsua},
             success: function(result)
             {   
@@ -234,8 +234,8 @@ $(document).ready(function(){
     });
     $('#btnThemModal').click(function(){
         $.ajax({
-            type: 'get',
-            url:'http://localhost/ttbd/index.php/san_bong/list_san_bong_api'
+            type: "get",
+            url: "<?php echo site_url();?>san_bong/list_san_bong_api"
             success: funtion(result)
             {
                 
