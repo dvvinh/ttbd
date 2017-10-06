@@ -16,7 +16,7 @@
 </head>
 <body>
 <?php
-    require_once 'modal_sanbong.php';
+    require_once 'modal_themtrungtambongda.php';
     echo $links;
     echo $recs;
 ?>   

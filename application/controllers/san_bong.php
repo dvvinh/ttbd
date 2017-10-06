@@ -85,7 +85,7 @@ class San_bong extends CI_Controller {
         $lk.='</ul>';
 
         $data['links']=$lk;
-        $this->load->view('phantrang',$data);
+        $this->load->view('phantrang_sanbong',$data);
     }
     public function xoa_nhieu_dong()
     {

@@ -85,7 +85,7 @@ class Trung_tam_bong_da extends CI_Controller {
         $lk.='</ul>';
 
         $data['links']=$lk;
-        $this->load->view('phantrang',$data);
+        $this->load->view('phantrang_trungtambongda',$data);
     }
     public function xoa_nhieu_dong()
     {
