@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class ="row">
-                <div class="col-md-3">id Trung tâm</div>
+                <div class="col-md-3">Trung tâm</div>
                 <div class="col-md-9">
                 <!-- <input type="text" id="id_trung_tam" /> -->
                 <select class="selec_trung_tam">
@@ -106,13 +106,28 @@
     </div>
 <script type="text/javascript" language="javascript">
 $(document).ready(function(){
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-        if (settings.data.indexOf('csrf_bong_da') === -1) {
-        settings.data += '&csrf_bong_da=' + encodeURIComponent(Cookies.get('csrf_cookie_bong_da'));
-      }
-    }
-    });
+/*    $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+            if (settings.data.indexOf('csrf_bong_da') === -1) {
+                settings.data += '&csrf_bong_da=' + encodeURIComponent(Cookies.get('csrf_cookie_bong_da'));
+            }
+            }
+    }); 
+*/
+    $.ajax({
+       type: "get",
+       url:  "<?php echo site_url();?>/trung_tam_bong_da/list_trung_tam_bong_da_api/",
+       dataType : 'json',
+       success: function(result)
+       {   
+           console.log(result);
+           var $chuoi="";
+           $.each(result, function(key,i){
+               $chuoi+="<option value=\""+i['id']+"\">"+i['ten']+"</option>";
+           });
+           $(".selec_trung_tam").html($chuoi);
+       }
+   });
     $('#btnThem').click(function(){
         var data={
             ten             :$('#ten').val(),
@@ -122,7 +137,7 @@ $(document).ready(function(){
         };
         $.ajax({
             type: "POST",
-            url:  "<?php echo site_url();?>san_bong/modal_them_san_bong/",
+            url:  "<?php echo site_url();?>/san_bong/modal_them_san_bong/",
             dataType: "json",
             data: data,
             success: function(result)
@@ -147,7 +162,7 @@ $(document).ready(function(){
         {
             $.ajax({
                 type:"post",
-                url:  "<?php echo site_url();?>san_bong/xoa_nhieu_dong/",
+                url:  "<?php echo site_url();?>/san_bong/xoa_nhieu_dong/",
                 data:{id:id},
                 success: function(result)
                 {
@@ -189,7 +204,7 @@ $(document).ready(function(){
         };
         $.ajax({
             type: "POST",
-            url:  "<?php echo site_url();?>san_bong/sua_san_bong/",
+            url:  "<?php echo site_url();?>/san_bong/sua_san_bong/",
             data: {mangsua:mangsua},
             success: function(result)
             {   
@@ -234,11 +249,11 @@ $(document).ready(function(){
     });
     $('#btnThemModal').click(function(){
         $.ajax({
-            type: "get",
-            url: "<?php echo site_url();?>san_bong/list_san_bong_api"
-            success: funtion(result)
+            type: "POST",
+            url: "<?php echo site_url();?>/trung_tam_bong_da/list_trung_tam_bong_da_api/",
+            success: function(result)
             {
-                
+                console.log(result);
             }
         });
     });

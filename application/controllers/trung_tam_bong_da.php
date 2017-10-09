@@ -107,6 +107,6 @@ class Trung_tam_bong_da extends CI_Controller {
         $this->load->model('Trung_tam_bong_da_model');
         $kq=$this->Trung_tam_bong_da_model->list_trung_tam_bong_da();
         $mangkq['kq']=$kq;
-        die(json_encode($mangkq));
+        die(json_encode($kq));
     }
 }
