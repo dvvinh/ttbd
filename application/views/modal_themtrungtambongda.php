@@ -111,7 +111,7 @@ $(document).ready(function(){
         };
         $.ajax({
             type: "POST",
-            url: "http://localhost/ttbd/index.php/trung_tam_bong_da/modal_them_ttbd/",
+            url: "<?php echo site_url();?>/trung_tam_bong_da/modal_them_ttbd/",
             dataType: "json",
             data: data,
             success: function(result)
@@ -136,7 +136,7 @@ $(document).ready(function(){
         {
             $.ajax({
                 type:"post",
-                url: "http://localhost/ttbd/index.php/trung_tam_bong_da/xoa_nhieu_dong/",
+                url: "<?php echo site_url();?>/trung_tam_bong_da/xoa_nhieu_dong/",
                 data:{id:id},
                 success: function(result)
                 {
@@ -178,7 +178,7 @@ $(document).ready(function(){
         };
         $.ajax({
             type: "POST",
-            url: "http://localhost/ttbd/index.php/trung_tam_bong_da/sua_trung_tam_bong_da/",
+            url: "<?php echo site_url();?>/trung_tam_bong_da/sua_trung_tam_bong_da/",
             data: {mangsua:mangsua},
             success: function(result)
             {   

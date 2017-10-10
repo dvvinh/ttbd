@@ -25,7 +25,7 @@ class San_bong extends CI_Controller {
         $ten=isset($_POST['ten']) ? trim($_POST['ten']) : 'ten';
         $so_luong=isset($_POST['so_luong']) ? trim($_POST['so_luong']) : 'so_luong';
         $id_trung_tam=isset($_POST['id_trung_tam']) ? trim($_POST['id_trung_tam']) : 'id_trung_tam';
-        $ghi_chu=isset($_POST['ghi_chu']) ? trim($_POST['ghi_chu']) : 'ghichu';
+        $ghi_chu=isset($_POST['ghi_chu']) ? trim($_POST['ghi_chu']) : 'ghi_chu';
         
         $data=array(
             'ten'=>$ten,

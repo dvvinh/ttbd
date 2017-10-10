@@ -36,7 +36,7 @@
                 <div class="col-md-3">Trung tâm</div>
                 <div class="col-md-9">
                 <!-- <input type="text" id="id_trung_tam" /> -->
-                <select class="selec_trung_tam">
+                <select class="selec_trung_tam" id="id_trung_tam">
                     <option value="1"> t1 </option>
                     <option value="2"> t2 </option>
                 </select>
@@ -106,21 +106,22 @@
     </div>
 <script type="text/javascript" language="javascript">
 $(document).ready(function(){
-/*    $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+        if(typeof settings.data !== 'undefined'){
             if (settings.data.indexOf('csrf_bong_da') === -1) {
-                settings.data += '&csrf_bong_da=' + encodeURIComponent(Cookies.get('csrf_cookie_bong_da'));
-            }
-            }
-    }); 
-*/
+            settings.data += '&csrf_bong_da=' + encodeURIComponent(Cookies.get('csrf_cookie_bong_da'));
+          }
+        }
+    }
+    });
+
     $.ajax({
        type: "get",
        url:  "<?php echo site_url();?>/trung_tam_bong_da/list_trung_tam_bong_da_api/",
        dataType : 'json',
        success: function(result)
        {   
-           console.log(result);
            var $chuoi="";
            $.each(result, function(key,i){
                $chuoi+="<option value=\""+i['id']+"\">"+i['ten']+"</option>";
@@ -135,6 +136,7 @@ $(document).ready(function(){
             id_trung_tam    :$('#id_trung_tam').val(),
             ghi_chu         :$('#ghi_chu').val()
         };
+        console.log(data);
         $.ajax({
             type: "POST",
             url:  "<?php echo site_url();?>/san_bong/modal_them_san_bong/",
