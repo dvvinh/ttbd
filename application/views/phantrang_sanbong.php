@@ -16,6 +16,7 @@
 </head>
 <body>
 <?php
+    require_once 'header.php';
     require_once 'modal_sanbong.php';
     echo $links;
     echo $recs;
