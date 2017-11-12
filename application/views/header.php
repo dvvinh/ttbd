@@ -15,6 +15,7 @@
             <li class="active" id="TrangChu"><a href="">Trang chủ</a></li>
             <li id="TrungTamBongDa"><a href="<?php echo site_url();?>/trung_tam_bong_da/ds_trung_tam_bong_da#TrungTamBongDa">Trung tâm bóng đá</a></li>
             <li id="SanBong"><a href="<?php echo site_url();?>/san_bong/ds_san_bong#SanBong">Sân bóng đá</a></li>
+            <li id="User"><a href="<?php echo site_url();?>/user/ds_user#User">User</a></li>            
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
                 <ul class="dropdown-menu">
